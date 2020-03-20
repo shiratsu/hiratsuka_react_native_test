@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import SampleList from './samples';
+
 const Stack = createStackNavigator();
 
 function HomeNavScreen() {
@@ -39,13 +41,9 @@ function DetailsScreen({ navigation }) {
   );
 }
 
-function SettingsScreen() {
+function SamplesScreen() {
   return (
-    <Stack.Screen name="Settings">
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-    </Stack.Screen>
+    <SampleList />
   );
 }
 
@@ -55,12 +53,14 @@ function MyTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeNavScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Samples" component={SamplesScreen} />
     </Tab.Navigator>
   );
 }
 
 export default function App() {
+  // console.log(`[INFO] this.state.activeTab: ${this.state.activeTab}`);
+  console.log("test");
   return (
     <NavigationContainer>
       <MyTabs />
