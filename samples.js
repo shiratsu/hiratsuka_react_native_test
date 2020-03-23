@@ -44,6 +44,41 @@ const DATA = [
     //     </View>
     //   );
     // }
+
+    componentWillUnmount(){
+      console.log("componentDidMount");
+    }
+
+    componentWillMount(){
+      console.log("componentWillMount");
+    }
+
+    componentDidMount(){
+      console.log("componentDidMount");
+    }
+
+    componentDidUpdate(prevProps) {
+
+      console.log("componentDidUpdate");
+    }
+    
+    componentWillUpdate(prevProps) {
+
+      console.log("componentWillUpdate");
+    }
+
+    componentWillUnmount() {
+
+      console.log("componentWillUnmount");
+    }
+
+    // static getDerivedStateFromProps(nextProps: Props, prevState: State) {
+    //   const name = nextProps.name.toUpperCase();
+    //   if (prevState.name !== name) {
+    //     return { isDerivered: true, name };
+    //   }
+    //   return;
+    // }
    
     render() {
       return (
@@ -69,7 +104,7 @@ const styles = StyleSheet.create({
       marginHorizontal: 16,
     },
     item: {
-      backgroundColor: '#f9c2ff',
+      backgroundColor: '#33ff33',
       padding: 20,
       marginVertical: 8,
     },
