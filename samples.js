@@ -37,13 +37,26 @@ const DATA = [
   
   class SampleList extends Component {
     
-    // let Item = (title) => {
-    //   return (
-    //     <View style={styles.item}>
-    //       <Text style={styles.title}>{title}</Text>
-    //     </View>
-    //   );
-    // }
+    render() {
+      return (
+        <SafeAreaView style={styles.container}>
+        <SectionList
+          sections={DATA}
+          keyExtractor={(item, index) => item + index}
+          renderItem={({ item }) => <Item title={item} />}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text style={styles.header}>{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+      )
+    }
+
+    constructor(props) {
+      super(props);
+      this.state = {date: new Date()};
+      console.log("constructor");
+    }
 
     componentWillUnmount(){
       console.log("componentDidMount");
@@ -79,21 +92,6 @@ const DATA = [
     //   }
     //   return;
     // }
-   
-    render() {
-      return (
-        <SafeAreaView style={styles.container}>
-        <SectionList
-          sections={DATA}
-          keyExtractor={(item, index) => item + index}
-          renderItem={({ item }) => <Item title={item} />}
-          renderSectionHeader={({ section: { title } }) => (
-            <Text style={styles.header}>{title}</Text>
-          )}
-        />
-      </SafeAreaView>
-      )
-    }
   }
 
 
@@ -101,18 +99,18 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       marginTop: Constants.statusBarHeight,
-      marginHorizontal: 16,
+      marginHorizontal: 10,
     },
     item: {
-      backgroundColor: '#',
+      backgroundColor: '#ffffff',
       padding: 20,
       marginVertical: 8,
     },
     header: {
-      fontSize: 32,
+      fontSize: 28,
     },
     title: {
-      fontSize: 24,
+      fontSize: 13,
     },
   });
 
