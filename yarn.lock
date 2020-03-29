@@ -1460,10 +1460,10 @@
     color "^3.1.2"
     react-native-iphone-x-helper "^1.2.1"
 
-"@react-navigation/core@^3.7.1":
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-3.7.1.tgz#4dbb6a72ddb411e68f7918bc35db8f9f900fdaeb"
-  integrity sha512-4Kiq1JxBVPBEiIMIiCBjJDszwuMQpnnAZklb9pJ78Ccr1DxuCovykuLKiRTwaPmFtLu7aFaDS+/rA2rBtZg+ew==
+"@react-navigation/core@^3.7.2":
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-3.7.2.tgz#c1467b9b7902bdfa48e37ea53570074b82fb7923"
+  integrity sha512-OeluLKGXSX/rSJ1ajyCzlW9/IH24fZPtlLbU3TkTIo8+YHK9mAqp9Mblf8dtQQIaYfuFPbmGKEeEeO3mzyk6zA==
   dependencies:
     hoist-non-react-statics "^3.3.2"
     path-to-regexp "^1.8.0"
@@ -1482,10 +1482,10 @@
     shortid "^2.2.15"
     use-subscription "^1.4.0"
 
-"@react-navigation/native@^3.7.7":
-  version "3.7.7"
-  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-3.7.7.tgz#288616d38c6cfc7fe3cc89aac901a5f6c38d0fa3"
-  integrity sha512-OJ+q3r3jrWhJeQkhljA8NrC4fnH+q5BpbyWqpLds+la0AfymnqQGqKnqn0CZyoGzlJKaQOm5h9YElEAPB7476Q==
+"@react-navigation/native@^3.7.8":
+  version "3.7.8"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-3.7.8.tgz#b96d3ae0a321169c9b2670cdaa99343ecde5157e"
+  integrity sha512-mP8xUd0vYsGV932jshplqRPpsxVDMqZf09taBTerWdnNScH9dBJNCkftk/wx5X76QRNAym6dkSNd8C1KXQXkGA==
   dependencies:
     hoist-non-react-statics "^3.3.2"
     react-native-safe-area-view "^0.14.8"
@@ -10630,13 +10630,13 @@ react-native@0.61.5:
     stacktrace-parser "^0.1.3"
     whatwg-fetch "^3.0.0"
 
-react-navigation@^4.2.2:
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-4.3.3.tgz#537ea1a00a481ab6c1d3becc15fa50979263e4f2"
-  integrity sha512-JCeErqx9W9wIZT1HzKjJ3cFa4uSrv2o1NuB72/EKuMmbCPyObITdxY9y7xrTkgl5R+BdpHIyRZp/SU/3vWzsZw==
+react-navigation@^4.3.4:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-4.3.4.tgz#ddc30e1e603e520a884aa557cacfb30bd932f86e"
+  integrity sha512-jbyPGseUyTSS7i3BmZSAEt5iu4mrqKW3/BhwXa30RsCF2TK6CteqIB4rO8grzdx3h5+8sRWVuU5ms53cSQaK6w==
   dependencies:
-    "@react-navigation/core" "^3.7.1"
-    "@react-navigation/native" "^3.7.7"
+    "@react-navigation/core" "^3.7.2"
+    "@react-navigation/native" "^3.7.8"
 
 react-popper-tooltip@^2.8.3:
   version "2.10.1"

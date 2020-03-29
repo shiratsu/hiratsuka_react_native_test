@@ -4,29 +4,11 @@ import {
   Text,
   View,
   SafeAreaView,
-  SectionList,
+  FlatList,
 } from 'react-native';
 import Constants from 'expo-constants';
 import axios from 'axios';
 
-const DATA = [
-    {
-      title: 'Main dishes',
-      data: ['Pizza', 'Burger', 'Risotto'],
-    },
-    {
-      title: 'Sides',
-      data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
-    },
-    {
-      title: 'Drinks',
-      data: ['Water', 'Coke', 'Beer'],
-    },
-    {
-      title: 'Desserts',
-      data: ['Cheese Cake', 'Ice Cream'],
-    },
-  ];
 
   function Item({ title }) {
     return (
@@ -65,15 +47,12 @@ const DATA = [
     render() {
       return (
         <SafeAreaView style={styles.container}>
-        <SectionList
-          sections={this.state.worklists}
-          keyExtractor={(item, index) => item + index}
-          renderItem={({ item }) => <Item title={item} />}
-          renderSectionHeader={({ section: { title } }) => (
-            <Text style={styles.header}>{title}</Text>
-          )}
-        />
-      </SafeAreaView>
+          <FlatList
+            data={this.state.worklists}
+            renderItem={({ item }) => <Item title={item.CatchCopy} />}
+            keyExtractor={item => item.WorkId}
+          />
+        </SafeAreaView>
       )
     }
 

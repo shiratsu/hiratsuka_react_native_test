@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import SampleList from './samples';
+import WorkList from './worklist';
 
 const Stack = createStackNavigator();
 
@@ -45,6 +46,10 @@ function SamplesScreen() {
   return (
     <SampleList />
   );
+}function WorkListScreen() {
+  return (
+    <WorkList />
+  );
 }
 
 const Tab = createBottomTabNavigator();
@@ -54,6 +59,7 @@ function MyTabs() {
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeNavScreen} />
       <Tab.Screen name="Samples" component={SamplesScreen} />
+      <Tab.Screen name="WorkList" component={WorkListScreen} />
     </Tab.Navigator>
   );
 }
