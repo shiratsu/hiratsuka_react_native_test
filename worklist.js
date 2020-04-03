@@ -3,7 +3,9 @@ import {
   StyleSheet,
   Text,
   View,
+  RefreshControl,
   SafeAreaView,
+  ActivityIndicator,
   FlatList,
 } from 'react-native';
 import Constants from 'expo-constants';
@@ -18,42 +20,72 @@ import axios from 'axios';
     );
   }
   
-  class SampleList extends Component {
+  class WorkList extends Component {
     
+    currentOffset = 0;
+
     state = {
       worklists: null,
-      listMeta: null
+      listMeta: null,
+      loading: false,
+      isRefreshing: false
     }
 
     componentDidMount() {
        
-      var param = {'a':'01','pr':'13','start':'1',}
-  
-      axios
-      .get('https://api-front.shotworks.jp/api-front/app/worklist', { params: param　})
-      .then((results) => {
-          // 通信に成功してレスポンスが返ってきた時に実行したい処理
-          console.log(results.data.Result);
-          console.log(results.data.ResultSet);
-          this.setState({ worklists: results.data.Result, listMeta: results.data.ResultSet });
-      })
-      .catch((error) => { 
-          // 通信に失敗してレスポンスが返ってこなかった時に実行したい処理
-          console.log('処理に失敗しました');
-      });     
+      this.fetchWorkList();
     }
    
 
     render() {
+      if (this.state.loading && this.page === 1) {
+        return <View style={{
+          width: '100%',
+          height: '100%'
+        }}><ActivityIndicator style={{ color: '#000' }} /></View>;
+      }
       return (
         <SafeAreaView style={styles.container}>
           <FlatList
             data={this.state.worklists}
             renderItem={({ item }) => <Item title={item.CatchCopy} />}
+            refreshControl={
+              <RefreshControl
+                refreshing={this.state.isRefreshing}
+                onRefresh={this.onRefresh.bind(this)}
+              />
+            }
             keyExtractor={item => item.WorkId}
+            ListFooterComponent={this.renderFooter.bind(this)}
+            onEndReachedThreshold={0.4}
+            onEndReached={this.handleLoadMore.bind(this)}
           />
         </SafeAreaView>
       )
+    }
+
+    renderFooter = () => {
+      //it will show indicator at the bottom of the list when data is loading otherwise it returns null
+       if (!this.state.loading) return null;
+       return (
+         <ActivityIndicator
+           style={{ color: '#000' }}
+         />
+       );
+    };
+
+     handleLoadMore = () => {
+      if (!this.state.loading) {
+        this.setState({ loading: true });
+        this.currentOffset = this.currentOffset + 20; // increase page by 1
+        this.fetchWorkList(); // method for API call 
+      }
+    };
+
+    onRefresh() {
+      this.currentOffset = 1
+      this.setState({ isRefreshing: true }); // true isRefreshing flag for enable pull to refresh indicator
+      this.fetchWorkList()
     }
 
     constructor(props) {
@@ -62,40 +94,24 @@ import axios from 'axios';
       console.log("constructor");
     }
 
-    // componentWillUnmount(){
-    //   console.log("componentDidMount");
-    // }
-
-    // componentWillMount(){
-    //   console.log("componentWillMount");
-    // }
-
-    // componentDidMount(){
-    //   console.log("componentDidMount");
-    // }
-
-    // componentDidUpdate(prevProps) {
-
-    //   console.log("componentDidUpdate");
-    // }
+    fetchWorkList(){
+      var param = {'a':'01','pr':'13','start':this.currentOffset,'limit':'20'}
+  
+      axios
+      .get('https://api-front.shotworks.jp/api-front/app/worklist', { params: param　})
+      .then((results) => {
+          // 通信に成功してレスポンスが返ってきた時に実行したい処理
+          this.setState({ worklists: results.data.Result, listMeta: results.data.ResultSet, isRefreshing: false, loading: false });
+      })
+      .catch((error) => { 
+          // 通信に失敗してレスポンスが返ってこなかった時に実行したい処理
+          console.log('処理に失敗しました');
+          this.setState({ worklists: null, listMeta: null, isRefreshing: false, isloading: false });
+      });     
     
-    // componentWillUpdate(prevProps) {
+    }
 
-    //   console.log("componentWillUpdate");
-    // }
-
-    // componentWillUnmount() {
-
-    //   console.log("componentWillUnmount");
-    // }
-
-    // static getDerivedStateFromProps(nextProps: Props, prevState: State) {
-    //   const name = nextProps.name.toUpperCase();
-    //   if (prevState.name !== name) {
-    //     return { isDerivered: true, name };
-    //   }
-    //   return;
-    // }
+    
   }
 
 
@@ -118,5 +134,5 @@ const styles = StyleSheet.create({
     },
   });
 
-export default SampleList;  
+export default WorkList;  
   
