@@ -12,10 +12,15 @@ import Constants from 'expo-constants';
 import axios from 'axios';
 
 
-  function Item({ title }) {
+  function Item({ workitem }) {
+    console.log(workitem);
     return (
       <View style={styles.item}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{workitem.CatchCopy}</Text>
+        <Text style={styles.itemTitle}>給与情報</Text>
+        <Text style={styles.itemTitle}>職種</Text>
+        <Text style={styles.itemTitle}>駅</Text>
+        <Text style={styles.itemTitle}>時間</Text>
       </View>
     );
   }
@@ -48,7 +53,7 @@ import axios from 'axios';
         <SafeAreaView style={styles.container}>
           <FlatList
             data={this.state.worklists}
-            renderItem={({ item }) => <Item title={item.CatchCopy} />}
+            renderItem={({ item }) => <Item workitem={item} />}
             refreshControl={
               <RefreshControl
                 refreshing={this.state.isRefreshing}
@@ -131,6 +136,13 @@ const styles = StyleSheet.create({
     },
     title: {
       fontSize: 13,
+    },
+    title: {
+      fontSize: 13,
+    },
+    itemTitle: {
+      fontSize: 10,
+      color: '#444444'
     },
   });
 
