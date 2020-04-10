@@ -31,7 +31,7 @@
     "react-native-screens": "^2.2.0",
     "react-native-unimodules": "^0.8.1",
     "react-navigation": "^4.3.4",
-    "realm": "^3.6.5",
+    "realm": "^5.0.3",
     "typescript": "^3.7.0-beta"
   },
   "devDependencies": {

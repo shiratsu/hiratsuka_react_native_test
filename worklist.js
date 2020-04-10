@@ -17,10 +17,22 @@ import axios from 'axios';
     return (
       <View style={styles.item}>
         <Text style={styles.title}>{workitem.CatchCopy}</Text>
-        <Text style={styles.itemTitle}>給与情報</Text>
-        <Text style={styles.itemTitle}>職種</Text>
-        <Text style={styles.itemTitle}>駅</Text>
-        <Text style={styles.itemTitle}>時間</Text>
+        <View style={{ flexDirection: 'row'}}>
+          <Text style={styles.itemTitle}>給与情報</Text>
+          <Text style={styles.itemTitle}>{workitem.Payment}</Text>
+        </View>
+        <View style={{ flexDirection: 'row'}}>
+          <Text style={styles.itemTitle}>職種</Text>
+          <Text style={styles.itemTitle}>{workitem.JobName}</Text>
+        </View>
+        <View style={{ flexDirection: 'row'}}>
+          <Text style={styles.itemTitle}>駅</Text>
+          <Text style={styles.itemTitle}>{workitem.WorkPlace}</Text>
+        </View>
+        <View style={{ flexDirection: 'row'}}>
+          <Text style={styles.itemTitle}>時間</Text>
+          <Text style={styles.itemTitle}>{workitem.WorkDateTime}</Text>
+        </View>
       </View>
     );
   }
@@ -142,7 +154,9 @@ const styles = StyleSheet.create({
     },
     itemTitle: {
       fontSize: 10,
-      color: '#444444'
+      color: '#444444',
+      marginVertical: 5,
+      marginHorizontal: 2,
     },
   });
 
