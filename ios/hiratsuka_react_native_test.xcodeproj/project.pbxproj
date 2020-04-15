@@ -20,6 +20,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* hiratsuka_react_native_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* hiratsuka_react_native_testTests.m */; };
 		97626A5B3843D0E2479EC210 /* libPods-hiratsuka_react_native_test-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C31FB04D7E74EEB9C4EC5FD8 /* libPods-hiratsuka_react_native_test-tvOSTests.a */; };
+		F3C668092447BDB300A4F66F /* libRNFastImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3C668082447BDB300A4F66F /* libRNFastImage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		DD027407197B6CC457BD4616 /* libPods-hiratsuka_react_native_testTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hiratsuka_react_native_testTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		F3C668082447BDB300A4F66F /* libRNFastImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNFastImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C668092447BDB300A4F66F /* libRNFastImage.a in Frameworks */,
 				08728BC6C3710168D963A3AC /* libPods-hiratsuka_react_native_test.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +142,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3C668082447BDB300A4F66F /* libRNFastImage.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				588A9553764A3E90FB21072B /* libPods-hiratsuka_react_native_test.a */,

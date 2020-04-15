@@ -9,6 +9,9 @@ import {
   FlatList,
 } from 'react-native';
 import Constants from 'expo-constants';
+
+import FastImage from 'react-native-fast-image'
+
 import axios from 'axios';
 // import FastImage from 'react-native-fast-image'
 
@@ -30,7 +33,9 @@ function Item({ workitem }) {
 function ImageFavorite({ workitem }){
   return (
     <View>
-      {/* <FastImage
+
+      <FastImage
+
         style={{ height: 50, width: 75 }}
         source={{
         uri: workitem.Photo,
@@ -38,7 +43,9 @@ function ImageFavorite({ workitem }){
         onLoadStart={e => console.log('Loading Start')}
         onLoadEnd={e => console.log('Loading Ended')}        
       >
-      </FastImage> */}
+
+      </FastImage>
+
     </View> 
   );
 
