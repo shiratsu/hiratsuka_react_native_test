@@ -9104,9 +9104,9 @@ no-case@^3.0.3:
     lower-case "^2.0.1"
     tslib "^1.10.0"
 
-"node-addon-api@git+https://github.com/blagoev/node-addon-api.git#rjs":
+"node-addon-api@git+https://github.com/blagoev/node-addon-api.git":
   version "2.0.0"
-  resolved "git+https://github.com/blagoev/node-addon-api.git#7f56a78ff7eab77f1316696aef1de3304b70e639"
+  resolved "git+https://github.com/blagoev/node-addon-api.git#89e62a9154b6057ed086a227db25caf26ac8c92a"
 
 node-fetch@^1.0.1, node-fetch@^1.7.3:
   version "1.7.3"
@@ -10513,6 +10513,11 @@ react-native-elements@^1.2.7:
     react-native-ratings "^6.3.0"
     react-native-status-bar-height "^2.2.0"
 
+react-native-fast-image@^8.1.5:
+  version "8.1.5"
+  resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.1.5.tgz#0a6404c988dad68c98d26f91155d0a5293ba2ea5"
+  integrity sha512-DoAWGLeQ2hbllummrpXH9B38OgM0TFmNYCF34F90/hdHZirqUtYHzF4QDdb/NV7ebSijHmM3mpkzct8PXtcYyg==
+
 react-native-gesture-handler@^1.6.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.6.1.tgz#678e2dce250ed66e93af409759be22cd6375dd17"
@@ -10823,10 +10828,10 @@ readdirp@^2.2.1:
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
 
-realm@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/realm/-/realm-5.0.3.tgz#163996e37f9529045d51751f333cb13b1299a0b2"
-  integrity sha512-V1q/qp5CeAqe5TW8eJVtGakLbR/sKjeEtJ9e1m/ISze8bU46kvNfCFQApiBPuujrWUgo/v+4qN1QgKwFa+8a9g==
+realm@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/realm/-/realm-5.0.0.tgz#c990992ca6ba524116838dba3959575642949e0d"
+  integrity sha512-nIfJgsb65cDXYnG/ocL9ew3VxajcI34wJ9a1Ynty6uPv53vmOfoZJoycaSFmchebbWjpOmJrFPqEhhdNwWCnfA==
   dependencies:
     command-line-args "^4.0.6"
     decompress "^4.2.0"
@@ -10835,7 +10840,7 @@ realm@^5.0.3:
     fs-extra "^4.0.3"
     https-proxy-agent "^2.2.4"
     ini "^1.3.5"
-    node-addon-api "git+https://github.com/blagoev/node-addon-api.git#rjs"
+    node-addon-api "git+https://github.com/blagoev/node-addon-api.git"
     node-fetch "^1.7.3"
     node-machine-id "^1.1.10"
     node-pre-gyp "^0.14.0"
