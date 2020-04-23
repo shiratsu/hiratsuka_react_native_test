@@ -156,7 +156,14 @@ class WorkList extends Component {
     .get('https://api-front.shotworks.jp/api-front/app/worklist', { params: param　})
     .then((results) => {
         // 通信に成功してレスポンスが返ってきた時に実行したい処理
-        this.setState({ worklists: results.data.Result, listMeta: results.data.ResultSet, isRefreshing: false, loading: false });
+        if(this.state.worklists == null){
+          this.setState({ worklists: results.data.Result, listMeta: results.data.ResultSet, isRefreshing: false, loading: false });
+        }else{
+          let tmpList = this.state.worklists
+          tmpList.push(...results.data.Result)
+          this.setState({ worklists: tmpList, listMeta: results.data.ResultSet, isRefreshing: false, loading: false });
+        }
+        
     })
     .catch((error) => { 
         // 通信に失敗してレスポンスが返ってこなかった時に実行したい処理
