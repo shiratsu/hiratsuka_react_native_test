@@ -21,7 +21,7 @@ function Item({ workitem }) {
   return (
     <View style={styles.item}>
       <Text style={styles.title}>{workitem.CatchCopy}</Text>
-        <View style={{ flexDirection: 'row'}}>
+        <View style={styles.itemContainer}>
           <BaseWorkInfo workitem={workitem} />
           <ImageFavorite workitem={workitem} />
         </ View>
@@ -36,7 +36,7 @@ function ImageFavorite({ workitem }){
 
       <FastImage
 
-        style={{ height: 50, width: 75 }}
+        style={ styles.photoStyle }
         source={{
         uri: workitem.Photo,
         }}
@@ -54,22 +54,22 @@ function ImageFavorite({ workitem }){
 
 function BaseWorkInfo({ workitem }){
   return (
-    <View>
+    <View style={styles.baseContainer}>
       <View style={{ flexDirection: 'row'}}>
         <Text style={styles.itemTitle}>給与情報</Text>
-        <Text style={styles.itemTitle}>{workitem.Payment}</Text>
+        <Text style={styles.itemContent}>{workitem.Payment}</Text>
       </View>
       <View style={{ flexDirection: 'row'}}>
         <Text style={styles.itemTitle}>職種</Text>
-        <Text style={styles.itemTitle}>{workitem.JobName}</Text>
+        <Text style={styles.itemContent}>{workitem.JobName}</Text>
       </View>
       <View style={{ flexDirection: 'row'}}>
         <Text style={styles.itemTitle}>駅</Text>
-        <Text style={styles.itemTitle}>{workitem.WorkPlace}</Text>
+        <Text style={styles.itemContent}>{workitem.WorkPlace}</Text>
       </View>
       <View style={{ flexDirection: 'row'}}>
         <Text style={styles.itemTitle}>時間</Text>
-        <Text style={styles.itemTitle}>{workitem.WorkDateTime}</Text>
+        <Text style={styles.itemContent}>{workitem.WorkDateTime}</Text>
       </View>
     </View>
   );
@@ -180,6 +180,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     padding: 20,
     marginVertical: 8,
+    marginHorizontal: 0
+  },
+  itemContainer: {
+    padding: 1,
+    flexDirection: 'row'
+  },
+  baseContainer: {
+    padding: 1
   },
   header: {
     fontSize: 28,
@@ -194,8 +202,21 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#444444',
     marginVertical: 5,
+    paddingRight: 5,
     marginHorizontal: 2,
   },
+  itemContent: {
+    fontSize: 10,
+    color: '#444444',
+    marginVertical: 5,
+    padding: 2,
+    overflow: "hidden"
+  },
+  photoStyle: {
+    overflow: "visible",
+    height: 50,
+    width: 75
+  }
 });
 
 export default WorkList;  
