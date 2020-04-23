@@ -210,14 +210,15 @@ const styles = StyleSheet.create({
     color: '#444444',
     marginVertical: 5,
     paddingRight: 5,
-    marginHorizontal: 2,
+    marginHorizontal: 0
+    
   },
   itemContent: {
     fontSize: 10,
     color: '#444444',
     marginVertical: 5,
-    padding: 2,
-    overflow: "hidden"
+    padding: 0,
+    width: "65%"
   },
   photoStyle: {
     overflow: "visible",
