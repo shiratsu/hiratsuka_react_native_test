@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import SampleList from './samples';
 import WorkList from './worklist';
+import WorkDetail from './workdetail';
 
 const Stack = createStackNavigator();
 
@@ -41,14 +42,30 @@ function DetailsScreen({ navigation }) {
     </View>
   );
 }
+const RootStack = StackNavigator(
+  {
+    WorkList: {
+      screen: WorkList,
+    },
+    WorkDetail: {
+      screen: WorkDetail,
+    },
+  },
+  {
+    initialRouteName: 'WorkList',
+  }
+);
+
+
 
 function SamplesScreen() {
   return (
     <SampleList />
   );
-}function WorkListScreen() {
+}
+function WorkScreen() {
   return (
-    <WorkList />
+    <RootStack />
   );
 }
 
@@ -59,7 +76,7 @@ function MyTabs() {
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeNavScreen} />
       <Tab.Screen name="Samples" component={SamplesScreen} />
-      <Tab.Screen name="WorkList" component={WorkListScreen} />
+      <Tab.Screen name="Work" component={WorkScreen} />
     </Tab.Navigator>
   );
 }

@@ -9,6 +9,10 @@ import {
   FlatList,
 } from 'react-native';
 import Constants from 'expo-constants';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+
 
 import FastImage from 'react-native-fast-image'
 
@@ -16,19 +20,21 @@ import axios from 'axios';
 // import FastImage from 'react-native-fast-image'
 
 
-function Item({ workitem }) {
-  console.log(workitem);
-  return (
-    <View style={styles.item}>
-      <Text style={styles.title}>{workitem.CatchCopy}</Text>
-        <View style={styles.itemContainer}>
-          <BaseWorkInfo workitem={workitem} />
-          <ImageFavorite workitem={workitem} />
-        </ View>
+
+
+// function Item({ workitem }) {
+//   console.log(workitem);
+//   return (
+//     <View style={styles.item}>
+//       <Text style={styles.title}>{workitem.CatchCopy}</Text>
+//         <View style={styles.itemContainer}>
+//           <BaseWorkInfo workitem={workitem} />
+//           <ImageFavorite workitem={workitem} />
+//         </View>
       
-    </View>
-  );
-}
+//     </View>
+//   );
+// }
 
 function ImageFavorite({ workitem }){
   return (
@@ -103,7 +109,7 @@ class WorkList extends Component {
       <SafeAreaView style={styles.container}>
         <FlatList
           data={this.state.worklists}
-          renderItem={({ item }) => <Item workitem={item} />}
+          renderItem={ this.setWorkItem }
           refreshControl={
             <RefreshControl
               refreshing={this.state.isRefreshing}
@@ -117,7 +123,27 @@ class WorkList extends Component {
         />
       </SafeAreaView>
     )
+  }        
+    
+  setWorkItem = ({ workitem }) => {
+    console.log(workitem);
+    return (
+      <View style={styles.item} onPress={ () => this.doAction(workitem) }>
+        <Text style={styles.title}>{workitem.CatchCopy}</Text>
+          <View style={styles.itemContainer}>
+            <BaseWorkInfo workitem={workitem} />
+            <ImageFavorite workitem={workitem} />
+          </View>
+        
+      </View>
+    );
   }
+
+  doAction = ({ workitem }) => {
+    this.props.navigation.navigate('WorkDetail'{
+      workItem: workitem
+    })
+  }  
 
   renderFooter = () => {
     //it will show indicator at the bottom of the list when data is loading otherwise it returns null
