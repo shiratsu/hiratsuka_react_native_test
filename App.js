@@ -42,21 +42,6 @@ function DetailsScreen({ navigation }) {
     </View>
   );
 }
-const RootStack = StackNavigator(
-  {
-    WorkList: {
-      screen: WorkList,
-    },
-    WorkDetail: {
-      screen: WorkDetail,
-    },
-  },
-  {
-    initialRouteName: 'WorkList',
-  }
-);
-
-
 
 function SamplesScreen() {
   return (
@@ -65,7 +50,10 @@ function SamplesScreen() {
 }
 function WorkScreen() {
   return (
-    <RootStack />
+    <Stack.Navigator>
+      <Stack.Screen name="WorkList" component={WorkList} />
+      <Stack.Screen name="WorkDetail" component={WorkDetail} />
+    </Stack.Navigator>
   );
 }
 

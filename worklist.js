@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   ActivityIndicator,
   FlatList,
+  TouchableOpacity
 } from 'react-native';
 import Constants from 'expo-constants';
 import { NavigationContainer } from '@react-navigation/native';
@@ -125,23 +126,25 @@ class WorkList extends Component {
     )
   }        
     
-  setWorkItem = ({ workitem }) => {
-    console.log(workitem);
+  setWorkItem = ({ item }) => {
+    console.log(item);
     return (
-      <View style={styles.item} onPress={ () => this.doAction(workitem) }>
-        <Text style={styles.title}>{workitem.CatchCopy}</Text>
+      <TouchableOpacity onPress={ () => this.doAction(item) }>
+      <View style={styles.item} >
+        <Text style={styles.title}>{item.CatchCopy}</Text>
           <View style={styles.itemContainer}>
-            <BaseWorkInfo workitem={workitem} />
-            <ImageFavorite workitem={workitem} />
+            <BaseWorkInfo workitem={item} />
+            <ImageFavorite workitem={item} />
           </View>
         
       </View>
+      </TouchableOpacity>
     );
   }
 
   doAction = ({ workitem }) => {
-    this.props.navigation.navigate('WorkDetail'{
-      workItem: workitem
+    this.props.navigation.navigate('WorkDetail',{
+      workDetail: workitem
     })
   }  
 

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { WebView } from 'react-native';
+import React, { Component } from 'react';
+import { WebView } from 'react-native-webview';
 
 class WorkDetail extends Component {
 
@@ -8,7 +8,7 @@ class WorkDetail extends Component {
         workDetail: null,
     }
 
-    rendor(){
+    render(){
         return(
             <WebView
             source={{uri: 'https://www.yahoo.co.jp/'}}
@@ -30,3 +30,5 @@ class WorkDetail extends Component {
         console.log('onLoadStart');
     }
 }    
+
+export default WorkDetail;
